@@ -1,180 +1,184 @@
-# 📋 Team To-Do
+# 📋 Team To-Do (Aplicación de Tareas en Equipo)
 
-Aplicación web colaborativa para gestionar tareas en equipo con autenticación de usuarios y filtrado en tiempo real.
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![NestJS](https://img.shields.io/badge/NestJS-11-red?logo=nestjs)
+![MySQL](https://img.shields.io/badge/MySQL-grey?logo=mysql)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-purple?logo=vite)
 
-## 🚀 Demo en Vivo
+**Team To-Do** es una aplicación web full-stack diseñada para ayudar a los equipos a gestionar tareas de manera eficiente. Cuenta con un sistema seguro de autenticación de usuarios, actualizaciones de tareas y una interfaz de usuario moderna y adaptable.
 
-- **Frontend**: https://tdolistreact.netlify.app
-- **Backend API**: https://teamto-do-1.onrender.com
+## ✨ Características
 
-## ✨ Características Principales
+- **Aplicación Full-Stack**: Arquitectura completa de frontend y backend.
+- **Gestión de Tareas**: Crear, leer, actualizar y eliminar tareas.
+- **Colaboración en Equipo**: Asignar tareas a miembros del equipo (funcionalidad en desarrollo).
+- **Autenticación de Usuarios**: Sistema seguro de registro e inicio de sesión con JWT.
+- **Encriptación de Contraseñas**: Usa `bcrypt` para hashear las contraseñas de los usuarios.
+- **Búsqueda en Tiempo Real**: Funcionalidad de búsqueda con "debounce" para tareas y usuarios.
+- **Filtrado de Tareas**: Visualiza tareas por estado (todas, pendientes, completadas).
+- **Diseño Adaptable (Responsive)**: Una interfaz de usuario limpia y moderna que funciona en todos los dispositivos.
 
-- ✅ **Gestión de Tareas**: Crear, editar, marcar como completadas y eliminar tareas
-- 👥 **Multiusuario**: Sistema completo de registro e inicio de sesión
-- 🔍 **Búsqueda Inteligente**: Busca tareas por texto o autor con debounce
-- 🎯 **Filtros**: Visualiza todas, pendientes o completadas
-- 🔒 **Seguridad**: Validación de contraseñas (min 8 caracteres, mayúsculas, minúsculas y caracteres especiales)
-- 🎨 **Diseño Moderno**: Interfaz colorida y responsive con gradientes cálidos
-- 📱 **Responsive**: Funciona perfectamente en desktop, tablet y móvil
+## 🛠️ Tecnologías Utilizadas
 
-## 🛠️ Tecnologías
+| Área      | Tecnología         | Descripción                               |
+|-----------|--------------------|-------------------------------------------|
+| **Frontend**  | React 18           | Una biblioteca de JavaScript para construir interfaces de usuario. |
+|           | Vite               | Herramientas de frontend de nueva generación.         |
+|           | React Router       | Enrutamiento declarativo para React.            |
+|           | Tailwind CSS       | Un framework de CSS "utility-first".            |
+|           | Axios              | Cliente HTTP basado en promesas.                |
+| **Backend**   | NestJS             | Un framework progresivo de Node.js.          |
+|           | Prisma ORM         | ORM de nueva generación para Node.js y TypeScript. |
+|           | MySQL              | Base de datos relacional de código abierto.          |
+|           | JWT                | JSON Web Tokens para autenticación.       |
+| **DevOps**    | Netlify            | Despliegue y alojamiento del frontend.          |
+|           | Render             | Despliegue y alojamiento del backend.           |
 
-### Frontend
-- React 18
-- React Router DOM
-- Tailwind CSS
-- Axios
-- React Toastify
-- Vite
+## 📦 Cómo Empezar
 
-### Backend
-- NestJS
-- Prisma ORM
-- MySQL
-- JWT para autenticación
-- bcrypt para encriptación
+Sigue estas instrucciones para configurar y ejecutar el proyecto localmente.
 
-### Despliegue
-- Frontend: Netlify
-- Backend: Render
-- Base de Datos: Railway (MySQL)
+### Prerrequisitos
 
-## 📦 Instalación Local
-
-### Requisitos Previos
-- Node.js 18+
-- npm o yarn
-- MySQL
+- [Node.js](https://nodejs.org/) (v18 o superior recomendado)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+- Una instancia de [MySQL](https://www.mysql.com/) en ejecución
 
 ### 1. Clonar el Repositorio
+
 ```bash
 git clone https://github.com/tu-usuario/team-todo.git
 cd team-todo
 ```
 
-### 2. Configurar Frontend
-```bash
-cd frontend
-npm install
-```
+### 2. Configuración del Backend
 
-Crear archivo `.env`:
-```env
-VITE_API_URL=http://localhost:3000
-```
-
-Iniciar en modo desarrollo:
 ```bash
-npm run dev
-```
-El frontend estará en `http://localhost:5173`
-
-### 3. Configurar Backend
-```bash
+# Navega al directorio del backend
 cd backend
+
+# Instala las dependencias
 npm install
+
+# Crea el archivo .env a partir del ejemplo
+cp .env.example .env
 ```
 
-Crear archivo `.env`:
+A continuación, abre el archivo `.env` recién creado y completa tus credenciales de la base de datos MySQL y un `JWT_SECRET`.
+
 ```env
-DATABASE_URL="mysql://root:password@localhost:3306/teamtodo"
-FRONTEND_URL="http://localhost:5173"
-PORT=3000
+DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DATABASE"
+JWT_SECRET="your-super-secret-key"
+...
 ```
 
-Generar Prisma Client y migrar la base de datos:
+Finalmente, crea la base de datos y aplica el esquema con Prisma Migrate:
+
 ```bash
-npx prisma generate
+# Esto creará la base de datos y aplicará las migraciones
 npx prisma migrate dev
+
+# Genera el Cliente de Prisma
+npx prisma generate
 ```
 
-Iniciar en modo desarrollo:
+Ahora puedes iniciar el servidor del backend:
+
 ```bash
+# Iniciar en modo de desarrollo con recarga automática
 npm run start:dev
 ```
-El backend estará en `http://localhost:3000`
+El backend estará disponible en `http://localhost:3000`.
 
-## 📁 Estructura del Proyecto
+### 3. Configuración del Frontend
 
-```
-team-todo/
-├── frontend/
-│   ├── src/
-│   │   ├── components/       # Componentes reutilizables
-│   │   ├── pages/            # Páginas (Home, Login, Register)
-│   │   ├── context/          # AuthContext
-│   │   ├── hooks/            # useDebounce
-│   │   └── App.jsx
-│   └── package.json
-│
-└── backend/
-    ├── src/
-    │   ├── auth/             # Autenticación
-    │   ├── todos/            # Gestión de tareas
-    │   ├── users/            # Gestión de usuarios
-    │   └── main.ts
-    ├── prisma/
-    │   └── schema.prisma     # Esquema de BD
-    └── package.json
+```bash
+# Navega al directorio del frontend (desde la raíz del proyecto)
+cd frontend
+
+# Instala las dependencias
+npm install
+
+# Crea el archivo .env a partir del ejemplo
+cp .env.example .env
 ```
 
-## 🔐 Requisitos de Contraseña
+El archivo `.env` apunta al servidor local del backend por defecto, por lo que no se necesitan cambios si tu backend se está ejecutando en `http://localhost:3000`.
 
-Para registrarse, la contraseña debe cumplir:
-- ✅ Mínimo 8 caracteres
-- ✅ Al menos una letra mayúscula (A-Z)
-- ✅ Al menos una letra minúscula (a-z)
-- ✅ Al menos un carácter especial (!@#$%^&*...)
+Ahora puedes iniciar el servidor de desarrollo del frontend:
 
-## 📡 API Endpoints
+```bash
+# Inicia el servidor de desarrollo de Vite
+npm run dev
+```
+El frontend estará disponible en `http://localhost:5173`.
 
-### Autenticación
-- `POST /auth/register` - Registrar nuevo usuario
-- `POST /auth/login` - Iniciar sesión
+## 🧪 Ejecución de Pruebas
 
-### Tareas
-- `GET /todos` - Obtener todas las tareas
-- `POST /todos` - Crear nueva tarea
-- `PATCH /todos/:id` - Actualizar tarea
-- `DELETE /todos/:id` - Eliminar tarea
+El backend incluye un conjunto de pruebas. Puedes ejecutarlas usando los siguientes comandos desde el directorio `backend`:
 
-### Usuarios
-- `GET /users` - Listar todos los usuarios
+```bash
+# Ejecutar pruebas unitarias
+npm test
 
-## 🚀 Despliegue en Producción
+# Ejecutar pruebas en modo "watch" (observador)
+npm run test:watch
 
-### Frontend (Netlify)
-1. Conecta tu repositorio
-2. Build command: `npm run build`
-3. Publish directory: `dist`
-4. Agregar variable: `VITE_API_URL=https://tu-backend.onrender.com`
+# Ejecutar pruebas "end-to-end" (de extremo a extremo)
+npm run test:e2e
+```
 
-### Backend (Render)
-1. Conecta tu repositorio
-2. Build command: `npm install && npx prisma generate`
-3. Start command: `npm run start:prod`
-4. Agregar variables de entorno:
-   - `DATABASE_URL` (URL pública de Railway)
-   - `FRONTEND_URL` (URL de Netlify)
+## 💅 Linting y Formateo de Código
 
-### Base de Datos (Railway)
-1. Crear proyecto MySQL
-2. Copiar la URL pública de conexión
-3. Usarla en `DATABASE_URL`
+Este proyecto utiliza ESLint y Prettier para mantener la calidad del código. Para ejecutarlos, usa los siguientes comandos desde el directorio `backend`:
 
-## 🐛 Solución de Problemas
+```bash
+# Ejecutar el linter y corregir problemas automáticamente
+npm run lint
 
-### Error de CORS
-Asegúrate de que `FRONTEND_URL` en Render incluya tu dominio de Netlify sin `/` al final.
+# Formatear todos los archivos de código fuente
+npm run format
+```
 
-### Error de Base de Datos
-Usa la URL **pública** de Railway (con `shuttle.proxy.rlwy.net`), no la interna (`mysql.railway.internal`).
+## 📡 Endpoints de la API
 
-### Problemas de Login/Registro
-Verifica que el backend esté corriendo y que las variables de entorno estén correctamente configuradas.
+El backend expone los siguientes endpoints de la API REST.
 
+#### Autenticación (Auth)
+- `POST /auth/register`: Registrar un nuevo usuario.
+- `POST /auth/login`: Iniciar sesión y recibir un JWT.
 
+#### Usuarios (Users)
+- `GET /users`: Obtener una lista de todos los usuarios.
+- `POST /users`: Crear un nuevo usuario.
 
-## 👤 Autor
+#### Tareas (Tasks)
+- `GET /tasks`: Obtener una lista de todas las tareas.
+- `POST /tasks`: Crear una nueva tarea.
+- `GET /tasks/:id`: Obtener una tarea por su ID.
+- `PATCH /tasks/:id`: Actualizar una tarea.
+- `DELETE /tasks/:id`: Eliminar una tarea.
 
-Jose Leon - [GitHub](https://github.com/Leonidas670)
+#### Equipos (Teams)
+- `GET /teams`: Obtener una lista de todos los equipos.
+- `POST /teams`: Crear un nuevo equipo.
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Si tienes sugerencias o quieres mejorar el proyecto, siéntete libre de:
+1. Hacer un "fork" del repositorio.
+2. Crear una nueva rama (`git checkout -b feature/AmazingFeature`).
+3. Hacer tus cambios y confirmarlos (`git commit -m 'Add some AmazingFeature'`).
+4. Subir la rama (`git push origin feature/AmazingFeature`).
+5. Abrir una "Pull Request".
+
+## 📄 Licencia
+
+Este proyecto no tiene licencia. Eres libre de usarlo, modificarlo y distribuirlo como consideres oportuno. Considera agregar una licencia de código abierto como la [MIT](https://opensource.org/licenses/MIT) si planeas compartirlo públicamente.
+
+---
+
+## Autor
+
+Juan Rodríguez - [Github](https://github.com/Juan0510-10/team_to_do.git)
