@@ -1,0 +1,54 @@
+:root {
+  --primary-color: #FFD700; /* Gold */
+  --secondary-color: #000000; /* Black */
+  --text-color: #FFFFFF;
+  --background-color: #121212;
+  --card-background: #1E1E1E;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+}
+
+.bg-primary { background-color: var(--primary-color); }
+.bg-secondary { background-color: var(--secondary-color); }
+.bg-card { background-color: var(--card-background); }
+
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+
+.border-primary { border-color: var(--primary-color); }
+
+button, .btn {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #e6c300; /* Darker Gold */
+}
+
+input, textarea, select {
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #e6c300;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+}
