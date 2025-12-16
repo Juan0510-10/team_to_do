@@ -14,7 +14,40 @@
 |                | Prisma         | ORM para Node.js y TypeScript.            |
 | **Base de Datos**| MySQL          | Sistema de gestión de bases de datos relacional. |
 
-## 3. Requisitos Previos
+## 3. Estructura del Repositorio
+
+```
+.
+├── backend/
+│   ├── prisma/
+│   │   └── schema.prisma
+│   ├── src/
+│   │   ├── auth/
+│   │   ├── tasks/
+│   │   ├── teams/
+│   │   └── users/
+│   │   └── main.ts
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   └── services/
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
+├── API.md
+├── ARQUITECTURA.md
+├── LICENSE
+└── README.md
+```
+
+## 4. Requisitos Previos
 
 Antes de empezar, asegúrate de tener instalado lo siguiente:
 - **Node.js**: v18 o superior.
@@ -22,7 +55,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente:
 - **Git**: Para clonar el repositorio.
 - **MySQL**: Una instancia de base de datos MySQL activa y accesible.
 
-## 4. Cómo Ejecutar el Backend en Local
+## 5. Cómo Ejecutar el Backend en Local
 
 1.  **Navegar al directorio del backend:**
     ```bash
@@ -35,7 +68,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente:
     ```
 
 3.  **Configurar variables de entorno:**
-    Crea un archivo `.env` a partir del ejemplo y configúralo (ver sección 6).
+    Crea un archivo `.env` a partir del ejemplo y configúralo (ver sección 7).
     ```bash
     cp .env.example .env
     ```
@@ -52,7 +85,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente:
     ```
     El backend estará disponible en `http://localhost:3000`.
 
-## 5. Cómo Ejecutar el Frontend en Local
+## 6. Cómo Ejecutar el Frontend en Local
 
 1.  **Navegar al directorio del frontend:**
     ```bash
@@ -65,7 +98,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente:
     ```
 
 3.  **Configurar variables de entorno:**
-    Crea un archivo `.env` a partir del ejemplo (ver sección 6).
+    Crea un archivo `.env` a partir del ejemplo (ver sección 7).
     ```bash
     cp .env.example .env
     ```
@@ -76,7 +109,7 @@ Antes de empezar, asegúrate de tener instalado lo siguiente:
     ```
     El frontend estará disponible en `http://localhost:5173`.
 
-## 6. Configuración de Variables de Entorno
+## 7. Configuración de Variables de Entorno
 
 Debes crear un archivo `.env` en los directorios `frontend` y `backend` respectivamente.
 
@@ -107,7 +140,7 @@ Copia el contenido de `.env.example`. Por defecto, apunta al backend local, por 
 VITE_API_URL=http://localhost:3000/api
 ```
 
-## 7. Links a Entornos Desplegados
+## 8. Links a Entornos Desplegados
 
 - **Frontend (Netlify):** (https://todolistproyecto.netlify.app)
 - **Backend (Render):** (https://team-to-do.onrender.com)
