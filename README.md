@@ -109,8 +109,8 @@ VITE_API_URL=http://localhost:3000/api
 
 ## 7. Links a Entornos Desplegados
 
-- **Frontend (Netlify):** `[https://todolistproyecto.netlify.app/]`
-- **Backend (Render):** `[https://team-to-do.onrender.com/]`
+- **Frontend (Netlify):** (https://todolistproyecto.netlify.app)
+- **Backend (Render):** (https://team-to-do.onrender.com)
 
 ---
 
